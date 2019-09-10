@@ -75,7 +75,7 @@ In this task, you will use the Azure Cloud shell to create a new Azure Resource 
 
    ![In the You have no storage mounted dialog, a subscription has been selected, and the Create Storage button is highlighted.](media/cloud-shell-create-storage.png 'Azure Cloud Shell')
 
-   > **NOTE**: If creation fails, you may need to select **Advanced settings** and specify the subscription, region and resource group for the new storage account.
+   > **Note**: If creation fails, you may need to select **Advanced settings** and specify the subscription, region and resource group for the new storage account.
 
 4. After a moment, you will receive a message that you have successfully requested a Cloud Shell, and be presented with bash Azure prompt.
 
@@ -186,7 +186,7 @@ Azure Data Lake Storage Gen2 provides a very fast native directory-based file sy
 
 In this task, you will use the Azure Cloud Shell to create a new Azure Databricks workspace with an Azure Resource Management (ARM) template. During the lab, you will create a Spark cluster within your Azure Databricks workspace to perform real-time stream processing against website clickstream data that is sent through Event Hubs using the Kafka protocol.
 
-2. Execute the following command to create your Azure Databricks workspace with an ARM template:
+1. Execute the following command to create your Azure Databricks workspace with an ARM template:
 
     ```bash
     az group deployment create \
@@ -215,7 +215,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Admin username**: Currently required to be the value **citus**, and can't be changed.
    - **Password: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
-   
+      
    > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
