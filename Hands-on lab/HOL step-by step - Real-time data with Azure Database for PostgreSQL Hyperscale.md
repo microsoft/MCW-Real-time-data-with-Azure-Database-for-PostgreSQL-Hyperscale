@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -26,36 +26,36 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [Real-time data with Azure Database for PostgreSQL Hyperscale hands-on lab step-by-step](#Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#Abstract-and-learning-objectives)
-  - [Overview](#Overview)
-  - [Solution architecture](#Solution-architecture)
-  - [Requirements](#Requirements)
-  - [Before the hands-on lab](#Before-the-hands-on-lab)
-  - [Exercise 1: Connect to and set up your database](#Exercise-1-Connect-to-and-set-up-your-database)
-    - [Task 1: Connect to the PostgreSQL database](#Task-1-Connect-to-the-PostgreSQL-database)
-    - [Task 2: Create a table to store clickstream data](#Task-2-Create-a-table-to-store-clickstream-data)
-    - [Task 3: Shard tables across nodes](#Task-3-Shard-tables-across-nodes)
-  - [Exercise 2: Add secrets to Key Vault and configure Azure Databricks](#Exercise-2-Add-secrets-to-Key-Vault-and-configure-Azure-Databricks)
-    - [Task 1: Obtain and store ADLS Gen2 secrets in Azure Key Vault](#Task-1-Obtain-and-store-ADLS-Gen2-secrets-in-Azure-Key-Vault)
-    - [Task 2: Obtain and store Event Hubs (Kafka) secrets in Azure Key Vault](#Task-2-Obtain-and-store-Event-Hubs-Kafka-secrets-in-Azure-Key-Vault)
-    - [Task 3: Create a service principal for OAuth access to the ADLS Gen2 filesystem](#Task-3-Create-a-service-principal-for-OAuth-access-to-the-ADLS-Gen2-filesystem)
-    - [Task 4: Add the service principal credentials and Tenant Id to Azure Key Vault](#Task-4-Add-the-service-principal-credentials-and-Tenant-Id-to-Azure-Key-Vault)
-    - [Task 5: Create an Azure Databricks cluster](#Task-5-Create-an-Azure-Databricks-cluster)
-    - [Task 6: Load lab notebooks into Azure Databricks](#Task-6-Load-lab-notebooks-into-Azure-Databricks)
-    - [Task 7: Configure Azure Databricks Key Vault-backed secrets](#Task-7-Configure-Azure-Databricks-Key-Vault-backed-secrets)
-  - [Exercise 3: Send clickstream data to Kafka and process it in real time](#Exercise-3-Send-clickstream-data-to-Kafka-and-process-it-in-real-time)
-    - [Task 1: Configure the KafkaProducer application](#Task-1-Configure-the-KafkaProducer-application)
-    - [Task 2: Open notebook and process the streaming data](#Task-2-Open-notebook-and-process-the-streaming-data)
-  - [Exercise 4: Rollup real-time data in PostgreSQL](#Exercise-4-Rollup-real-time-data-in-PostgreSQL)
-    - [Task 1: Create functions to rollup data](#Task-1-Create-functions-to-rollup-data)
-    - [Task 2: Schedule periodic aggregation and execute dashboard queries](#Task-2-Schedule-periodic-aggregation-and-execute-dashboard-queries)
-  - [Exercise 5: Create advanced visualizations in Power BI](#Exercise-5-Create-advanced-visualizations-in-Power-BI)
-    - [Task 1: Connect to your Postgres data from Power BI](#Task-1-Connect-to-your-Postgres-data-from-Power-BI)
-    - [Task 2: Create report](#Task-2-Create-report)
-    - [Task 3: Save and publish report](#Task-3-Save-and-publish-report)
-  - [After the hands-on lab](#After-the-hands-on-lab)
-    - [Task 1: Delete the resource group](#Task-1-Delete-the-resource-group)
+- [Real-time data with Azure Database for PostgreSQL Hyperscale hands-on lab step-by-step](#real-time-data-with-azure-database-for-postgresql-hyperscale-hands-on-lab-step-by-step)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+  - [Exercise 1: Connect to and set up your database](#exercise-1-connect-to-and-set-up-your-database)
+    - [Task 1: Connect to the PostgreSQL database](#task-1-connect-to-the-postgresql-database)
+    - [Task 2: Create a table to store clickstream data](#task-2-create-a-table-to-store-clickstream-data)
+    - [Task 3: Shard tables across nodes](#task-3-shard-tables-across-nodes)
+  - [Exercise 2: Add secrets to Key Vault and configure Azure Databricks](#exercise-2-add-secrets-to-key-vault-and-configure-azure-databricks)
+    - [Task 1: Obtain and store ADLS Gen2 secrets in Azure Key Vault](#task-1-obtain-and-store-adls-gen2-secrets-in-azure-key-vault)
+    - [Task 2: Obtain and store Event Hubs (Kafka) secrets in Azure Key Vault](#task-2-obtain-and-store-event-hubs-kafka-secrets-in-azure-key-vault)
+    - [Task 3: Create a service principal for OAuth access to the ADLS Gen2 filesystem](#task-3-create-a-service-principal-for-oauth-access-to-the-adls-gen2-filesystem)
+    - [Task 4: Add the service principal credentials and Tenant Id to Azure Key Vault](#task-4-add-the-service-principal-credentials-and-tenant-id-to-azure-key-vault)
+    - [Task 5: Create an Azure Databricks cluster](#task-5-create-an-azure-databricks-cluster)
+    - [Task 6: Load lab notebooks into Azure Databricks](#task-6-load-lab-notebooks-into-azure-databricks)
+    - [Task 7: Configure Azure Databricks Key Vault-backed secrets](#task-7-configure-azure-databricks-key-vault-backed-secrets)
+  - [Exercise 3: Send clickstream data to Kafka and process it in real time](#exercise-3-send-clickstream-data-to-kafka-and-process-it-in-real-time)
+    - [Task 1: Configure the KafkaProducer application](#task-1-configure-the-kafkaproducer-application)
+    - [Task 2: Open notebook and process the streaming data](#task-2-open-notebook-and-process-the-streaming-data)
+  - [Exercise 4: Rollup real-time data in PostgreSQL](#exercise-4-rollup-real-time-data-in-postgresql)
+    - [Task 1: Create functions to rollup data](#task-1-create-functions-to-rollup-data)
+    - [Task 2: Schedule periodic aggregation and execute dashboard queries](#task-2-schedule-periodic-aggregation-and-execute-dashboard-queries)
+  - [Exercise 5: Create advanced visualizations in Power BI](#exercise-5-create-advanced-visualizations-in-power-bi)
+    - [Task 1: Connect to your Postgres data from Power BI](#task-1-connect-to-your-postgres-data-from-power-bi)
+    - [Task 2: Create report](#task-2-create-report)
+    - [Task 3: Save and publish report](#task-3-save-and-publish-report)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Delete the resource group](#task-1-delete-the-resource-group)
 
 <!-- /TOC -->
 
@@ -146,7 +146,7 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
    ![The previously described fields are filled in within the Connection tab.](media/pgadmin-create-server-connection.png 'Create Server - Connection tab')
 
-8. Click the **Save** button.
+8. Select the **Save** button.
 
 9. Expand the newly added **Lab** server under the Servers tree on the pgAdmin home page. You should be able to expand the citus database.
 
@@ -164,23 +164,23 @@ Partitioning is the key to high performance, as it allows you to break up data i
 
 2. Paste the following query into the Query Editor:
 
-   ```sql
-   CREATE TABLE events(
-       event_id serial,
-       event_time timestamptz default now(),
-       customer_id bigint,
-       event_type text,
-       country text,
-       browser text,
-       device_id bigint,
-       session_id bigint
-   )
-   PARTITION BY RANGE (event_time);
+    ```sql
+    CREATE TABLE events(
+        event_id serial,
+        event_time timestamptz default now(),
+        customer_id bigint,
+        event_type text,
+        country text,
+        browser text,
+        device_id bigint,
+        session_id bigint
+    )
+    PARTITION BY RANGE (event_time);
 
-   --Create 5-minutes partitions
-   SELECT partman.create_parent('public.events', 'event_time', 'native', '5 minutes');
-   UPDATE partman.part_config SET infinite_time_partitions = true;
-   ```
+    --Create 5-minutes partitions
+    SELECT partman.create_parent('public.events', 'event_time', 'native', '5 minutes');
+    UPDATE partman.part_config SET infinite_time_partitions = true;
+    ```
 
 3. Press F5 to execute the query, or select the **Execute** button on the toolbar above.
 
@@ -304,7 +304,7 @@ In this exercise, you will add secrets to Key Vault to securely store secrets, s
 
     - **Upload options**: Select Manual.
     - **Name**: Enter "Database-Connection-String".
-    - **Value**: Paste the PostgreSQL JDBC connection string you copied in an earlier step. Make sure it contains your password.
+    - **Value**: Paste the PostgreSQL JDBC connection string you copied in an earlier step. **Make sure it contains your password.**
 
     ![The Create a secret form is displayed with the previously defined field values.](media/key-vault-add-connection-string.png 'Create a secret')
 
@@ -406,15 +406,15 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 9. Copy the output from the command into a text editor, as you will need it in the following steps. The output should be similar to:
 
-   ```json
-   {
-     "appId": "16fae522-05f9-4e4d-8ccd-11db01909331",
-     "displayName": "wwi-oss-sp",
-     "name": "http://wwi-oss-sp",
-     "password": "00713451-2b0e-416f-b5bf-fbb43c1836d5",
-     "tenant": "d280491c-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-   }
-   ```
+    ```json
+    {
+        "appId": "16fae522-05f9-4e4d-8ccd-11db01909331",
+        "displayName": "wwi-oss-sp",
+        "name": "http://wwi-oss-sp",
+        "password": "00713451-2b0e-416f-b5bf-fbb43c1836d5",
+        "tenant": "d280491c-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    }
+    ```
 
 10. To verify the role assignment, select **Access control (IAM)** from the left-hand menu of the **ADLS Gen2 Storage account** blade, and then select the **Role assignments** tab and locate **wwi-oss-sp** under the _STORAGE BLOB DATA CONTRIBUTOR_ role.
 
@@ -424,7 +424,7 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 1. To provide access your ADLS Gen2 account from Azure Databricks you will use secrets stored in your Azure Key Vault account to provide the credentials of your newly created service principal within Databricks. Navigate to your Azure Key Vault account in the Azure portal, then select **Access Policies** and select the **+ Add new** button.
 
-2. Choose the account that you are currently logged into the portal with as the principal and **check Select all** under `key permissions`, `secret permissions`, and `certificate permissions`, then click OK and then click **Save**.
+2. Choose the account that you are currently logged into the portal with as the principal and **check Select all** under `key permissions`, `secret permissions`, and `certificate permissions`, then select OK and then **Save**.
 
 3. Now select **Secrets** under Settings on the left-hand menu. On the Secrets blade, select **+ Generate/Import** on the top toolbar.
 
@@ -480,7 +480,7 @@ In this task, you will connect to your Azure Databricks workspace and create a c
 
    - **Cluster Name**: Enter a name for your cluster, such as lab-cluster.
    - **Cluster Mode**: Select Standard.
-   - **Databricks Runtime Version**: Select Runtime: 5.4 (Scala 2.11, Spark 2.4.3).
+   - **Databricks Runtime Version**: Select Runtime: 5.5 LTS (Scala 2.11, Spark 2.4.3).
    - **Python Version**: Select 3.
    - **Enable autoscaling**: Ensure this is checked.
    - **Terminate after XX minutes of inactivity**: Leave this checked, and the number of minutes set to 120.
@@ -619,145 +619,145 @@ Advanced aggregation is accomplished by using HyperLogLog (HLL) and `TopN`, as d
 
 2. Within the Query Editor, clear the previous query if needed, paste the following, then **execute the query**.
 
-   ```sql
-   CREATE TABLE rollups (
-       name text primary key,
-       event_table_name text not null,
-       event_id_sequence_name text not null,
-       last_aggregated_id bigint default 0
-   );
+    ```sql
+    CREATE TABLE rollups (
+        name text primary key,
+        event_table_name text not null,
+        event_id_sequence_name text not null,
+        last_aggregated_id bigint default 0
+    );
 
-   CREATE OR REPLACE FUNCTION incremental_rollup_window(rollup_name text, OUT window_start bigint, OUT window_end bigint)
-   RETURNS record
-   LANGUAGE plpgsql
-   AS $function$
-   DECLARE
-       table_to_lock regclass;
-   BEGIN
-       /*
-       * Perform aggregation from the last aggregated ID + 1 up to the last committed ID.
-       * We do a SELECT .. FOR UPDATE on the row in the rollup table to prevent
-       * aggregations from running concurrently.
-       */
-       SELECT event_table_name, last_aggregated_id+1, pg_sequence_last_value(event_id_sequence_name)
-       INTO table_to_lock, window_start, window_end
-       FROM rollups
-       WHERE name = rollup_name FOR UPDATE;
+    CREATE OR REPLACE FUNCTION incremental_rollup_window(rollup_name text, OUT window_start bigint, OUT window_end bigint)
+    RETURNS record
+    LANGUAGE plpgsql
+    AS $function$
+    DECLARE
+        table_to_lock regclass;
+    BEGIN
+        /*
+        * Perform aggregation from the last aggregated ID + 1 up to the last committed ID.
+        * We do a SELECT .. FOR UPDATE on the row in the rollup table to prevent
+        * aggregations from running concurrently.
+        */
+        SELECT event_table_name, last_aggregated_id+1, pg_sequence_last_value(event_id_sequence_name)
+        INTO table_to_lock, window_start, window_end
+        FROM rollups
+        WHERE name = rollup_name FOR UPDATE;
 
-       IF NOT FOUND THEN
-           RAISE 'rollup ''%'' is not in the rollups table', rollup_name;
-       END IF;
+        IF NOT FOUND THEN
+            RAISE 'rollup ''%'' is not in the rollups table', rollup_name;
+        END IF;
 
-       IF window_end IS NULL THEN
-           /* sequence was never used */
-           window_end := 0;
-           RETURN;
-       END IF;
+        IF window_end IS NULL THEN
+            /* sequence was never used */
+            window_end := 0;
+            RETURN;
+        END IF;
 
-       /*
-       * Play a little trick: We very briefly lock the table for writes in order to
-       * wait for all pending writes to finish. That way, we are sure that there are
-       * no more uncommitted writes with a identifier lower or equal to window_end.
-       * By throwing an exception, we release the lock immediately after obtaining it
-       * such that writes can resume.
-       */
-       BEGIN
-           EXECUTE format('LOCK %s IN EXCLUSIVE MODE', table_to_lock);
-           RAISE 'release table lock';
-       EXCEPTION WHEN OTHERS THEN
-       END;
+        /*
+        * Play a little trick: We very briefly lock the table for writes in order to
+        * wait for all pending writes to finish. That way, we are sure that there are
+        * no more uncommitted writes with an identifier lower or equal to window_end.
+        * By throwing an exception, we release the lock immediately after obtaining it
+        * such that writes can resume.
+        */
+        BEGIN
+            EXECUTE format('LOCK %s IN EXCLUSIVE MODE', table_to_lock);
+            RAISE 'release table lock';
+        EXCEPTION WHEN OTHERS THEN
+        END;
 
-       /*
-       * Remember the end of the window to continue from there next time.
-       */
-       UPDATE rollups SET last_aggregated_id = window_end WHERE name = rollup_name;
-   END;
-   $function$;
+        /*
+        * Remember the end of the window to continue from there next time.
+        */
+        UPDATE rollups SET last_aggregated_id = window_end WHERE name = rollup_name;
+    END;
+    $function$;
 
-   -- Entries for the rollup tables so that they are getting tracked in incremental rollup process.
-   INSERT INTO rollups (name, event_table_name, event_id_sequence_name)
-   VALUES ('rollup_events_5min', 'events','events_event_id_seq');
+    -- Entries for the rollup tables so that they are getting tracked in incremental rollup process.
+    INSERT INTO rollups (name, event_table_name, event_id_sequence_name)
+    VALUES ('rollup_events_5min', 'events','events_event_id_seq');
 
-   INSERT INTO rollups (name, event_table_name, event_id_sequence_name)
-   VALUES ('rollup_events_1hr', 'events','events_event_id_seq');
-   ```
+    INSERT INTO rollups (name, event_table_name, event_id_sequence_name)
+    VALUES ('rollup_events_1hr', 'events','events_event_id_seq');
+    ```
 
 3. Replace the previous query with the following in the Query Editor to create a rollup function that populates the **5-minute rollup table**. Then **execute the query**.
 
-   ```sql
-   CREATE OR REPLACE FUNCTION five_minutely_aggregation(OUT start_id bigint, OUT end_id bigint)
-   RETURNS record
-   LANGUAGE plpgsql
-   AS $function$
-   BEGIN
-       /* determine which page views we can safely aggregate */
-       SELECT window_start, window_end INTO start_id, end_id
-       FROM incremental_rollup_window('rollup_events_5min');
+    ```sql
+    CREATE OR REPLACE FUNCTION five_minutely_aggregation(OUT start_id bigint, OUT end_id bigint)
+    RETURNS record
+    LANGUAGE plpgsql
+    AS $function$
+    BEGIN
+        /* determine which page views we can safely aggregate */
+        SELECT window_start, window_end INTO start_id, end_id
+        FROM incremental_rollup_window('rollup_events_5min');
 
-       /* exit early if there are no new page views to aggregate */
-       IF start_id > end_id THEN RETURN; END IF;
+        /* exit early if there are no new page views to aggregate */
+        IF start_id > end_id THEN RETURN; END IF;
 
-       /* aggregate the page views, merge results if the entry already exists */
-       INSERT INTO rollup_events_5min
-           SELECT customer_id,
-                   event_type,
-                   country,
-                   browser,
-                   date_trunc('seconds', (event_time - TIMESTAMP 'epoch') / 300) * 300 + TIMESTAMP 'epoch' AS minute,
-                   count(*) as event_count,
-                   hll_add_agg(hll_hash_bigint(device_id)) as device_distinct_count,
-                   hll_add_agg(hll_hash_bigint(session_id)) as session_distinct_count,
-                   topn_add_agg(device_id::text) top_devices_1000
-           FROM events WHERE event_id BETWEEN start_id AND end_id
-           GROUP BY customer_id,event_type,country,browser,minute
-           ON CONFLICT (customer_id,event_type,country,browser,minute)
-           DO UPDATE
-           SET event_count=rollup_events_5min.event_count+excluded.event_count,
-               device_distinct_count = hll_union(rollup_events_5min.device_distinct_count, excluded.device_distinct_count),
-               session_distinct_count= hll_union(rollup_events_5min.session_distinct_count, excluded.session_distinct_count),
-               top_devices_1000 = topn_union(rollup_events_5min.top_devices_1000, excluded.top_devices_1000);
+        /* aggregate the page views, merge results if the entry already exists */
+        INSERT INTO rollup_events_5min
+            SELECT customer_id,
+                    event_type,
+                    country,
+                    browser,
+                    date_trunc('seconds', (event_time - TIMESTAMP 'epoch') / 300) * 300 + TIMESTAMP 'epoch' AS minute,
+                    count(*) as event_count,
+                    hll_add_agg(hll_hash_bigint(device_id)) as device_distinct_count,
+                    hll_add_agg(hll_hash_bigint(session_id)) as session_distinct_count,
+                    topn_add_agg(device_id::text) top_devices_1000
+            FROM events WHERE event_id BETWEEN start_id AND end_id
+            GROUP BY customer_id,event_type,country,browser,minute
+            ON CONFLICT (customer_id,event_type,country,browser,minute)
+            DO UPDATE
+            SET event_count=rollup_events_5min.event_count+excluded.event_count,
+                device_distinct_count = hll_union(rollup_events_5min.device_distinct_count, excluded.device_distinct_count),
+                session_distinct_count= hll_union(rollup_events_5min.session_distinct_count, excluded.session_distinct_count),
+                top_devices_1000 = topn_union(rollup_events_5min.top_devices_1000, excluded.top_devices_1000);
 
-   END;
-   $function$;
-   ```
+    END;
+    $function$;
+    ```
 
 4. Replace the previous query with the following in the Query Editor to create a rollup function that populates the **hourly rollup table**. Then **execute the query**.
 
-   ```sql
-   CREATE OR REPLACE FUNCTION hourly_aggregation(OUT start_id bigint, OUT end_id bigint)
-   RETURNS record
-   LANGUAGE plpgsql
-   AS $function$
-   BEGIN
-       /* determine which page views we can safely aggregate */
-       SELECT window_start, window_end INTO start_id, end_id
-       FROM incremental_rollup_window('rollup_events_1hr');
+    ```sql
+    CREATE OR REPLACE FUNCTION hourly_aggregation(OUT start_id bigint, OUT end_id bigint)
+    RETURNS record
+    LANGUAGE plpgsql
+    AS $function$
+    BEGIN
+        /* determine which page views we can safely aggregate */
+        SELECT window_start, window_end INTO start_id, end_id
+        FROM incremental_rollup_window('rollup_events_1hr');
 
-       /* exit early if there are no new page views to aggregate */
-       IF start_id > end_id THEN RETURN; END IF;
+        /* exit early if there are no new page views to aggregate */
+        IF start_id > end_id THEN RETURN; END IF;
 
-       /* aggregate the page views, merge results if the entry already exists */
-       INSERT INTO rollup_events_1hr
-          SELECT customer_id,
-                  event_type,
-                  country,
-                  browser,
-                  date_trunc('hour', event_time) as hour,
-                  count(*) as event_count,
-                  hll_add_agg(hll_hash_bigint(device_id)) as device_distinct_count,
-                  hll_add_agg(hll_hash_bigint(session_id)) as session_distinct_count,
-                  topn_add_agg(device_id::text) top_devices_1000
-          FROM events WHERE event_id BETWEEN start_id AND end_id
-          GROUP BY customer_id,event_type,country,browser,hour
-          ON CONFLICT (customer_id,event_type,country,browser,hour)
-          DO UPDATE
-          SET event_count = rollup_events_1hr.event_count+excluded.event_count,
-              device_distinct_count = hll_union(rollup_events_1hr.device_distinct_count,excluded.device_distinct_count),
-              session_distinct_count = hll_union(rollup_events_1hr.session_distinct_count,excluded.session_distinct_count),
-              top_devices_1000 = topn_union(rollup_events_1hr.top_devices_1000, excluded.top_devices_1000);
-   END;
-   $function$;
-   ```
+        /* aggregate the page views, merge results if the entry already exists */
+        INSERT INTO rollup_events_1hr
+            SELECT customer_id,
+                    event_type,
+                    country,
+                    browser,
+                    date_trunc('hour', event_time) as hour,
+                    count(*) as event_count,
+                    hll_add_agg(hll_hash_bigint(device_id)) as device_distinct_count,
+                    hll_add_agg(hll_hash_bigint(session_id)) as session_distinct_count,
+                    topn_add_agg(device_id::text) top_devices_1000
+            FROM events WHERE event_id BETWEEN start_id AND end_id
+            GROUP BY customer_id,event_type,country,browser,hour
+            ON CONFLICT (customer_id,event_type,country,browser,hour)
+            DO UPDATE
+            SET event_count = rollup_events_1hr.event_count+excluded.event_count,
+                device_distinct_count = hll_union(rollup_events_1hr.device_distinct_count,excluded.device_distinct_count),
+                session_distinct_count = hll_union(rollup_events_1hr.session_distinct_count,excluded.session_distinct_count),
+                top_devices_1000 = topn_union(rollup_events_1hr.top_devices_1000, excluded.top_devices_1000);
+    END;
+    $function$;
+    ```
 
 ### Task 2: Schedule periodic aggregation and execute dashboard queries
 
@@ -786,7 +786,7 @@ You will then execute queries against the rollup tables that can be used for WWI
    SELECT hourly_aggregation();
    ```
 
-    > The following queries don’t have a `customer_id` in the filter, so these queries will be executed in parallel across all the different nodes in the cluster, leading to fast query performance.
+    >**Note**: The following queries don’t have a `customer_id` in the filter, so these queries will be executed in parallel across all the different nodes in the cluster, leading to fast query performance.
 
 5. Clear the query window and paste the following to retrieve the total number of events and count of distinct devices in the last 15 minutes:
 
@@ -801,26 +801,26 @@ You will then execute queries against the rollup tables that can be used for WWI
 
 6. Clear the query window and paste the following to return the count of distinct sessions over the past week:
 
-   ```sql
-   SELECT sum(event_count) num_events,
-         ceil(hll_cardinality(hll_union_agg(device_distinct_count))) distinct_devices
-   FROM rollup_events_1hr
-   WHERE hour >=date_trunc('day',now())-interval '7 days'
-     AND hour <=now();
-   ```
+    ```sql
+    SELECT sum(event_count) num_events,
+            ceil(hll_cardinality(hll_union_agg(device_distinct_count))) distinct_devices
+    FROM rollup_events_1hr
+    WHERE hour >=date_trunc('day',now())-interval '7 days'
+        AND hour <=now();
+    ```
 
 7. Clear the query window and paste the following to return the trend of app usage in the past 2 days, broken down by hour:
 
-   ```sql
-   SELECT hour,
-         sum(event_count) event_count,
-         ceil(hll_cardinality(hll_union_agg(device_distinct_count))) device_count,
-         ceil(hll_cardinality(hll_union_agg(session_distinct_count))) session_count
-   FROM rollup_events_1hr
-   WHERE hour >=date_trunc('day',now())-interval '2 days'
-     AND hour <=now()
-   GROUP BY hour;
-   ```
+    ```sql
+    SELECT hour,
+            sum(event_count) event_count,
+            ceil(hll_cardinality(hll_union_agg(device_distinct_count))) device_count,
+            ceil(hll_cardinality(hll_union_agg(session_distinct_count))) session_count
+    FROM rollup_events_1hr
+    WHERE hour >=date_trunc('day',now())-interval '2 days'
+        AND hour <=now()
+    GROUP BY hour;
+    ```
 
     > As the next two queries have a filter on `customer_id`, Citus will route the queries to only the node which has the data for that particular customer without needing to touch data for the remaining customers. This leads to faster performance as you need to scan only a small portion of the data.
 
@@ -833,13 +833,13 @@ You will then execute queries against the rollup tables that can be used for WWI
 
 9. Clear the query window and paste the following to return the top devices in the past 30 minutes for customer 2:
 
-   ```sql
-   SELECT (topn(topn_union_agg(top_devices_1000), 10)).item device_id
-   FROM rollup_events_5min
-   WHERE minute >=date_trunc('day',now())-interval '30 minutes'
-     AND minute <=now()
-     AND customer_id=2;
-   ```
+    ```sql
+    SELECT (topn(topn_union_agg(top_devices_1000), 10)).item device_id
+    FROM rollup_events_5min
+    WHERE minute >=date_trunc('day',now())-interval '30 minutes'
+        AND minute <=now()
+        AND customer_id=2;
+    ```
 
 ## Exercise 5: Create advanced visualizations in Power BI
 
@@ -851,22 +851,23 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![Get data is highlighted.](media/pbi-get-data.png 'Power BI Desktop')
 
-2. In the Get Data dialog, search for `postgres` then select the **PostgreSQL database** option. Click **Connect**.
+2. In the Get Data dialog, search for `postgres` then select the **PostgreSQL database** option. Select **Connect**.
 
    ![The PostgreSQL database data source is selected.](media/pbi-postgres-data-source-search.png 'Get Data')
 
-3. If you see the following error after clicking **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#Task-7-Install-Npgsql) on your machine, or reboot if you have already completed the installation.
+3. If you see the following error after selecting **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#Task-7-Install-Npgsql) on your machine, or reboot if you have already completed the installation.
 
    ![Dialog says this connector requires one or more additional components to be installed before it can be used.](media/pbi-postgresql-error.png 'PostgreSQL database error')
 
-4. In the PostgreSQL database dialog, enter the following into the displayed fields, then click **OK**:
+4. In the PostgreSQL database dialog, enter the following into the displayed fields, then select **OK**:
 
    - **Server**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `/citus?`. For example: `<your-server-name>.postgres.database.azure.com:5432`), be sure to include the port at the end (`:5432`).
    - **Database**: enter **citus**.
+   - **Data Connectivity mode**: select **Import**.
 
    ![The Server and Database fields are displayed.](media/pbi-postgresql-server.png 'PostgreSQL database')
 
-5. Enter the following in the form that follows, then click **Connect**:
+5. Enter the following in the form that follows, then select **Connect**:
 
    - **User name**: Enter **citus**.
    - **Password**: Enter your database password.
@@ -874,7 +875,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![The credentials form is displayed.](media/pbi-postgresql-server-creds.png 'PostgreSQL database')
 
-6. In the next screen, a list of tables will appear. Check the box next to **public.events**, then click **Load**.
+6. In the next screen, a list of tables will appear. Check the box next to **public.events**, then choose **Load**.
 
    ![The public.events table is selected.](media/pbi-navigator.png 'Navigator')
 
@@ -930,7 +931,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
     ![The visualization is displayed.](media/pbi-ribbon.png 'Ribbon chart')
 
-13. When you are done, the report should look like the following. You can click on any item to filter all visualizations. For instance, we selected **download** on the **Treemap** visualization to apply the filter to display only download activities on each chart.
+13. When you are done, the report should look like the following. You can choose any item to filter all visualizations. For instance, we selected **download** on the **Treemap** visualization to apply the filter to display only download activities on each chart.
 
     ![A filtered view of the finished report is displayed.](media/pbi-filtered-report.png 'Power BI filtered report')
 
@@ -938,7 +939,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
 To share your report with others or to enable embedding the report within websites or mobile devices, you can publish it to the online Power BI service.
 
-1. Click the **Publish** button in the ribbon bar above.
+1. Select the **Publish** button in the ribbon bar above.
 
    ![The Publish button is highlighted in the ribbon bar.](media/pbi-publish-button.png 'Publish')
 
@@ -946,7 +947,7 @@ To share your report with others or to enable embedding the report within websit
 
    ![A dialog asking whether to save changes is displayed.](media/pbi-save.png 'Save changes')
 
-3. In the Publish dialog, select the **My workspace** destination, then click **Select**.
+3. In the Publish dialog, select the **My workspace** destination, then choose **Select**.
 
    ![The My Workspace destination is selected.](media/pbi-publish-destination.png 'Publish to Power BI')
 

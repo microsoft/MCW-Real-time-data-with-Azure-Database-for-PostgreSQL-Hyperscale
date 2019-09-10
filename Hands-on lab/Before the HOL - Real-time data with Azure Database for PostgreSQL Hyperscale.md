@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -26,18 +26,18 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [Real-time data with Azure Database for PostgreSQL Hyperscale before the hands-on lab setup guide](#Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale-before-the-hands-on-lab-setup-guide)
-  - [Requirements](#Requirements)
-  - [Before the hands-on lab](#Before-the-hands-on-lab)
-    - [Task 1: Create an Azure resource group using Azure Cloud Shell](#Task-1-Create-an-Azure-resource-group-using-Azure-Cloud-Shell)
-    - [Task 2: Create Cloud Shell variables](#Task-2-Create-Cloud-Shell-variables)
-    - [Task 3: Create an Azure Key Vault](#Task-3-Create-an-Azure-Key-Vault)
-    - [Task 4: Create an event hub with Kafka enabled](#Task-4-Create-an-event-hub-with-Kafka-enabled)
-    - [Task 5: Create an Azure Data Lake Storage Gen2 account](#Task-5-Create-an-Azure-Data-Lake-Storage-Gen2-account)
-    - [Task 6: Create Azure Databricks workspace](#Task-6-Create-Azure-Databricks-workspace)
-    - [Task 7: Deploy Azure Database for PostgreSQL](#Task-7-Deploy-Azure-Database-for-PostgreSQL)
-    - [Task 8: Install Npgsql](#Task-8-Install-Npgsql)
-    - [Task 9: Download the starter files](#Task-9-Download-the-starter-files)
+- [Real-time data with Azure Database for PostgreSQL Hyperscale before the hands-on lab setup guide](#real-time-data-with-azure-database-for-postgresql-hyperscale-before-the-hands-on-lab-setup-guide)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+    - [Task 1: Create an Azure resource group using Azure Cloud Shell](#task-1-create-an-azure-resource-group-using-azure-cloud-shell)
+    - [Task 2: Create Cloud Shell variables](#task-2-create-cloud-shell-variables)
+    - [Task 3: Create an Azure Key Vault](#task-3-create-an-azure-key-vault)
+    - [Task 4: Create an event hub with Kafka enabled](#task-4-create-an-event-hub-with-kafka-enabled)
+    - [Task 5: Create an Azure Data Lake Storage Gen2 account](#task-5-create-an-azure-data-lake-storage-gen2-account)
+    - [Task 6: Create Azure Databricks workspace](#task-6-create-azure-databricks-workspace)
+    - [Task 7: Deploy Azure Database for PostgreSQL](#task-7-deploy-azure-database-for-postgresql)
+    - [Task 8: Install Npgsql](#task-8-install-npgsql)
+    - [Task 9: Download the starter files](#task-9-download-the-starter-files)
 
 <!-- /TOC -->
 
@@ -75,7 +75,7 @@ In this task, you will use the Azure Cloud shell to create a new Azure Resource 
 
    ![In the You have no storage mounted dialog, a subscription has been selected, and the Create Storage button is highlighted.](media/cloud-shell-create-storage.png 'Azure Cloud Shell')
 
-   > **NOTE**: If creation fails, you may need to select **Advanced settings** and specify the subscription, region and resource group for the new storage account.
+   > **Note**: If creation fails, you may need to select **Advanced settings** and specify the subscription, region and resource group for the new storage account.
 
 4. After a moment, you will receive a message that you have successfully requested a Cloud Shell, and be presented with bash Azure prompt.
 
@@ -186,15 +186,15 @@ Azure Data Lake Storage Gen2 provides a very fast native directory-based file sy
 
 In this task, you will use the Azure Cloud Shell to create a new Azure Databricks workspace with an Azure Resource Management (ARM) template. During the lab, you will create a Spark cluster within your Azure Databricks workspace to perform real-time stream processing against website clickstream data that is sent through Event Hubs using the Kafka protocol.
 
-2. Execute the following command to create your Azure Databricks workspace with an ARM template:
+1. Execute the following command to create your Azure Databricks workspace with an ARM template:
 
-   ```bash
-   az group deployment create \
-     --name DatabricksWorkspaceDeployment \
-     --resource-group $resourcegroup \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-databricks-workspace/azuredeploy.json" \
-     --parameters workspaceName=$workspace pricingTier=premium location=$location
-   ```
+    ```bash
+    az group deployment create \
+        --name DatabricksWorkspaceDeployment \
+        --resource-group $resourcegroup \
+        --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-databricks-workspace/azuredeploy.json" \
+        --parameters workspaceName=$workspace pricingTier=premium location=$location
+    ```
 
 ### Task 7: Deploy Azure Database for PostgreSQL
 
@@ -215,7 +215,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Admin username**: Currently required to be the value **citus**, and can't be changed.
    - **Password: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
-   
+      
    > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
