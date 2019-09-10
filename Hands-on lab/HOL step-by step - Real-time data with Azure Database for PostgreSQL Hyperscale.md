@@ -146,7 +146,7 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
    ![The previously described fields are filled in within the Connection tab.](media/pgadmin-create-server-connection.png 'Create Server - Connection tab')
 
-8. Click the **Save** button.
+8. Select the **Save** button.
 
 9. Expand the newly added **Lab** server under the Servers tree on the pgAdmin home page. You should be able to expand the citus database.
 
@@ -424,7 +424,7 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 1. To provide access your ADLS Gen2 account from Azure Databricks you will use secrets stored in your Azure Key Vault account to provide the credentials of your newly created service principal within Databricks. Navigate to your Azure Key Vault account in the Azure portal, then select **Access Policies** and select the **+ Add new** button.
 
-2. Choose the account that you are currently logged into the portal with as the principal and **check Select all** under `key permissions`, `secret permissions`, and `certificate permissions`, then click OK and then click **Save**.
+2. Choose the account that you are currently logged into the portal with as the principal and **check Select all** under `key permissions`, `secret permissions`, and `certificate permissions`, then select OK and then **Save**.
 
 3. Now select **Secrets** under Settings on the left-hand menu. On the Secrets blade, select **+ Generate/Import** on the top toolbar.
 
@@ -657,7 +657,7 @@ Advanced aggregation is accomplished by using HyperLogLog (HLL) and `TopN`, as d
         /*
         * Play a little trick: We very briefly lock the table for writes in order to
         * wait for all pending writes to finish. That way, we are sure that there are
-        * no more uncommitted writes with a identifier lower or equal to window_end.
+        * no more uncommitted writes with an identifier lower or equal to window_end.
         * By throwing an exception, we release the lock immediately after obtaining it
         * such that writes can resume.
         */
@@ -786,7 +786,7 @@ You will then execute queries against the rollup tables that can be used for WWI
    SELECT hourly_aggregation();
    ```
 
-    > The following queries don’t have a `customer_id` in the filter, so these queries will be executed in parallel across all the different nodes in the cluster, leading to fast query performance.
+    >**Note**: The following queries don’t have a `customer_id` in the filter, so these queries will be executed in parallel across all the different nodes in the cluster, leading to fast query performance.
 
 5. Clear the query window and paste the following to retrieve the total number of events and count of distinct devices in the last 15 minutes:
 
@@ -851,15 +851,15 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![Get data is highlighted.](media/pbi-get-data.png 'Power BI Desktop')
 
-2. In the Get Data dialog, search for `postgres` then select the **PostgreSQL database** option. Click **Connect**.
+2. In the Get Data dialog, search for `postgres` then select the **PostgreSQL database** option. Select **Connect**.
 
    ![The PostgreSQL database data source is selected.](media/pbi-postgres-data-source-search.png 'Get Data')
 
-3. If you see the following error after clicking **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#Task-7-Install-Npgsql) on your machine, or reboot if you have already completed the installation.
+3. If you see the following error after selecting **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#Task-7-Install-Npgsql) on your machine, or reboot if you have already completed the installation.
 
    ![Dialog says this connector requires one or more additional components to be installed before it can be used.](media/pbi-postgresql-error.png 'PostgreSQL database error')
 
-4. In the PostgreSQL database dialog, enter the following into the displayed fields, then click **OK**:
+4. In the PostgreSQL database dialog, enter the following into the displayed fields, then select **OK**:
 
    - **Server**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `/citus?`. For example: `<your-server-name>.postgres.database.azure.com:5432`), be sure to include the port at the end (`:5432`).
    - **Database**: enter **citus**.
@@ -867,7 +867,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![The Server and Database fields are displayed.](media/pbi-postgresql-server.png 'PostgreSQL database')
 
-5. Enter the following in the form that follows, then click **Connect**:
+5. Enter the following in the form that follows, then select **Connect**:
 
    - **User name**: Enter **citus**.
    - **Password**: Enter your database password.
@@ -875,7 +875,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![The credentials form is displayed.](media/pbi-postgresql-server-creds.png 'PostgreSQL database')
 
-6. In the next screen, a list of tables will appear. Check the box next to **public.events**, then click **Load**.
+6. In the next screen, a list of tables will appear. Check the box next to **public.events**, then choose **Load**.
 
    ![The public.events table is selected.](media/pbi-navigator.png 'Navigator')
 
@@ -931,7 +931,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
     ![The visualization is displayed.](media/pbi-ribbon.png 'Ribbon chart')
 
-13. When you are done, the report should look like the following. You can click on any item to filter all visualizations. For instance, we selected **download** on the **Treemap** visualization to apply the filter to display only download activities on each chart.
+13. When you are done, the report should look like the following. You can choose any item to filter all visualizations. For instance, we selected **download** on the **Treemap** visualization to apply the filter to display only download activities on each chart.
 
     ![A filtered view of the finished report is displayed.](media/pbi-filtered-report.png 'Power BI filtered report')
 
@@ -939,7 +939,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
 To share your report with others or to enable embedding the report within websites or mobile devices, you can publish it to the online Power BI service.
 
-1. Click the **Publish** button in the ribbon bar above.
+1. Select the **Publish** button in the ribbon bar above.
 
    ![The Publish button is highlighted in the ribbon bar.](media/pbi-publish-button.png 'Publish')
 
@@ -947,7 +947,7 @@ To share your report with others or to enable embedding the report within websit
 
    ![A dialog asking whether to save changes is displayed.](media/pbi-save.png 'Save changes')
 
-3. In the Publish dialog, select the **My workspace** destination, then click **Select**.
+3. In the Publish dialog, select the **My workspace** destination, then choose **Select**.
 
    ![The My Workspace destination is selected.](media/pbi-publish-destination.png 'Publish to Power BI')
 
