@@ -601,7 +601,7 @@ _Process data while generating roll-ups_
       /*
       * Play a little trick: We very briefly lock the table for writes in order to
       * wait for all pending writes to finish. That way, we are sure that there are
-      * no more uncommitted writes with a identifier lower or equal to window_end.
+      * no more uncommitted writes with an identifier lower or equal to window_end.
       * By throwing an exception, we release the lock immediately after obtaining it
       * such that writes can resume.
       */
