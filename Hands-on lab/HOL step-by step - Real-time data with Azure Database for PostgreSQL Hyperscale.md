@@ -855,7 +855,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![The PostgreSQL database data source is selected.](media/pbi-postgres-data-source-search.png 'Get Data')
 
-3. If you see the following error after selecting **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#Task-7-Install-Npgsql) on your machine, or reboot if you have already completed the installation.
+3. If you see the following error after selecting **Connect**, you need to [install Npgsql](./Before%20the%20HOL%20-%20Managed%20open%20source%20databases%20on%20Azure.md#task-8-install-npgsql) on your machine, or reboot if you have already completed the installation.
 
    ![Dialog says this connector requires one or more additional components to be installed before it can be used.](media/pbi-postgresql-error.png 'PostgreSQL database error')
 
