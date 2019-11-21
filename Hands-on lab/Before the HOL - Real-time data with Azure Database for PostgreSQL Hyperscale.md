@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-September 2019
+December 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -188,13 +188,13 @@ In this task, you will use the Azure Cloud Shell to create a new Azure Databrick
 
 1. Execute the following command to create your Azure Databricks workspace with an ARM template:
 
-    ```bash
-    az group deployment create \
-        --name DatabricksWorkspaceDeployment \
-        --resource-group $resourcegroup \
-        --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-databricks-workspace/azuredeploy.json" \
-        --parameters workspaceName=$workspace pricingTier=premium location=$location
-    ```
+   ```bash
+   az group deployment create \
+       --name DatabricksWorkspaceDeployment \
+       --resource-group $resourcegroup \
+       --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-databricks-workspace/azuredeploy.json" \
+       --parameters workspaceName=$workspace pricingTier=premium location=$location
+   ```
 
 ### Task 7: Deploy Azure Database for PostgreSQL
 
@@ -204,7 +204,11 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![Create a resource is highlighted as well as the search term and result.](media/search-azure-db-for-postgresql.png 'Create a resource')
 
-2. Select the **Hyperscale (Citus) server group** deployment option.
+   **Note:** If you do not see the portal menu, select the menu icon in the upper left-hand corner of the portal to display.
+
+   ![The show portal menu icon is highlighted.](media/portal-menu.png 'Show portal menu')
+
+2. Select **Create** under the **Hyperscale (Citus) server group** deployment option.
 
    ![The Hyperscale (Citus) server group option is highlighted.](media/select-hyperscale.png 'Select Azure Database for PostgreSQL deployment option')
 
@@ -213,9 +217,9 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Resource group**: Select the resource group you created earlier.
    - **Server group name**: Enter a unique name for the new server group, such as **wwi-postgres-SUFFIX**, which will also be used for a server subdomain.
    - **Admin username**: Currently required to be the value **citus**, and can't be changed.
-   - **Password: Enter `Abc!1234567890`.
+   - **Password**: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
-      
+
    > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
@@ -232,7 +236,11 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![The Overview menu item and Go to resource button are both highlighted.](media/postgres-deployment-overview.png 'Deployment overview')
 
-8. Select **Firewall** in the left-hand menu underneath Security. In the Firewall rules blade, enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
+   If you are redirected to the Resource Group instead of the Azure Database for PostgreSQL server group, select the server group to continue to the next step.
+
+   ![The Azure Database for PostgreSQL server group is highlighted.](media/postgres-server-group-resource.png 'Resource Group')
+
+8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
 
    - **Firewall rule name**: ALL
    - **Start IP**: 0.0.0.0
@@ -240,7 +248,11 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
 
-9. Select **Save** to apply the new firewall rule.
+9. Under _Allow Azure services and resources to access this server group_, select **Yes**.
+
+   ![The firewall rules are applied.](media/postgres-networking.png 'Networking')
+
+10. Select **Save** to apply the new firewall rule.
 
 ### Task 8: Install Npgsql
 
