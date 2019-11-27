@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-September 2019
+December 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -581,21 +581,21 @@ In this exercise, you will configure and run the `KafkaProducer` application to 
 
 In this task, you will open a Databricks notebook and complete the instructions within.
 
-6. Leave the folder open for now and navigate back to your Azure Databricks workspace. You will be instructed to run `KafkaProducer.exe` in this folder after you have completed some steps within the lab notebook.
+1. Leave the folder open for now and navigate back to your Azure Databricks workspace. You will be instructed to run `KafkaProducer.exe` in this folder after you have completed some steps within the lab notebook.
 
-7. Within your Azure Databricks workspace, select **Workspace** from the left-hand menu, then select **Users** and select your user account (email address). Now select the **OSSDatabases** folder and then select the **1-Consume-Kafka** notebook to open it.
+2. Within your Azure Databricks workspace, select **Workspace** from the left-hand menu, then select **Users** and select your user account (email address). Now select the **OSSDatabases** folder and then select the **1-Consume-Kafka** notebook to open it.
 
    ![The 1-Consume-Kafka notebook is highlighted in the Databricks workspace.](media/databricks-open-consume-kafka-notebook.png 'Databricks workspace')
 
-8. After opening the notebook, you need to attach your cluster. To do this, select **Detached** in the toolbar, then select your cluster. If your cluster is not running, you will need to start it.
+3. After opening the notebook, you need to attach your cluster. To do this, select **Detached** in the toolbar, then select your cluster. If your cluster is not running, you will need to start it.
 
    ![The Detached toolbar item is highlighted, and the lab-cluster is highlighted.](media/databricks-select-cluster.png 'Attach cluster')
 
-9. You can execute each cell by selecting the **play button** on the upper-right portion of the cell, or you can click anywhere in the cell and execute it by entering **Ctrl+Enter** on your keyboard.
+4. You can execute each cell by selecting the **play button** on the upper-right portion of the cell, or you can click anywhere in the cell and execute it by entering **Ctrl+Enter** on your keyboard.
 
    ![The Play button is highlighted in the Databricks cell.](media/databricks-execute-cell.png 'Databricks cell')
 
-10. After you have completed all the steps in the notebook, continue to the next exercise.
+5. After you have completed all the steps in the notebook, continue to the next exercise.
 
 ## Exercise 4: Rollup real-time data in PostgreSQL
 
@@ -943,7 +943,7 @@ To share your report with others or to enable embedding the report within websit
 
    ![The Publish button is highlighted in the ribbon bar.](media/pbi-publish-button.png 'Publish')
 
-2. When prompted to save your changes, click **Save** to save your report to your machine.
+2. When prompted to save your changes, select **Save** to save your report to your machine.
 
    ![A dialog asking whether to save changes is displayed.](media/pbi-save.png 'Save changes')
 
