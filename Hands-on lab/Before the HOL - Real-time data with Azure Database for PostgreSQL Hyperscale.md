@@ -171,7 +171,7 @@ In this task, you will first create an Event Hubs namespace with Kafka enabled. 
 
 Azure Data Lake Storage Gen2 provides a very fast native directory-based file system optimized for streaming workloads and tailored to work with the Hadoop Distributed File System (HDFS). You will access ADLS Gen2 data from Azure Databricks, using the [ABFS driver](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-abfs-driver).
 
-2. Enter the following to create a general-purpose v2 storage account with locally-redundant storage:
+1. Enter the following to create a general-purpose v2 storage account with locally-redundant storage:
 
    ```bash
    az storage account create \
@@ -204,7 +204,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![Create a resource is highlighted as well as the search term and result.](media/search-azure-db-for-postgresql.png 'Create a resource')
 
-   **Note:** If you do not see the portal menu, select the menu icon in the upper left-hand corner of the portal to display.
+   >**Note:** If you do not see the portal menu, select the menu icon in the upper left-hand corner of the portal to display.
 
    ![The show portal menu icon is highlighted.](media/portal-menu.png 'Show portal menu')
 
@@ -220,7 +220,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Password**: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
 
-   > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
+> **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
 
