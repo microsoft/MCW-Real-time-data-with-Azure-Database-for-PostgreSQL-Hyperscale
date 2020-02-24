@@ -851,7 +851,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
    ![Get data is highlighted.](media/pbi-get-data.png 'Power BI Desktop')
 
-2. In the Get Data dialog, search for `postgres` then select the **PostgreSQL database** option. Select **Connect**.
+2. In the Get Data dialog, search for `postgres` then select the **Azure Database for PostgreSQL** option. Select **Connect**.
 
    ![The PostgreSQL database data source is selected.](media/pbi-postgres-data-source-search.png 'Get Data')
 
