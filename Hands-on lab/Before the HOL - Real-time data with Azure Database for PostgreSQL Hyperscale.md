@@ -240,7 +240,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![The Azure Database for PostgreSQL server group is highlighted.](media/postgres-server-group-resource.png 'Resource Group')
 
-8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
+8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, select **Yes** to *allow Azure services and resources to access this server group*, then enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
 
    - **Firewall rule name**: ALL
    - **Start IP**: 0.0.0.0
@@ -248,11 +248,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
 
-9. Under _Allow Azure services and resources to access this server group_, select **Yes**.
-
-   ![The firewall rules are applied.](media/postgres-networking.png 'Networking')
-
-10. Select **Save** to apply the new firewall rule.
+9.  Select **Save** to apply the new firewall rule.
 
 ### Task 8: Install Npgsql
 
