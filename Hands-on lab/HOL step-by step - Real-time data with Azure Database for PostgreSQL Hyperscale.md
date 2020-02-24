@@ -480,11 +480,11 @@ In this task, you will connect to your Azure Databricks workspace and create a c
 
    - **Cluster Name**: Enter a name for your cluster, such as lab-cluster.
    - **Cluster Mode**: Select Standard.
-   - **Databricks Runtime Version**: Select Runtime: 5.5 LTS (Scala 2.11, Spark 2.4.3).
-   - **Python Version**: Select 3.
+   - **Pool**: Select None.
+   - **Databricks Runtime Version**: Select Runtime: 6.2 (Scala 2.11, Spark 2.4.4).
    - **Enable autoscaling**: Ensure this is checked.
    - **Terminate after XX minutes of inactivity**: Leave this checked, and the number of minutes set to 120.
-   - **Worker Type**: Select Standard_DS4_v2.
+   - **Worker Type**: Select Standard_DS3_v2.
      - **Min Workers**: Leave set to 2.
      - **Max Workers**: Leave set to 8.
    - **Driver Type**: Set to Same as worker.
