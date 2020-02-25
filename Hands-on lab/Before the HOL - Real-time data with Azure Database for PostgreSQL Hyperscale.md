@@ -22,7 +22,7 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-**Contents**
+### Contents
 
 <!-- TOC -->
 
@@ -48,8 +48,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
    - Trial subscriptions will not work.
    - **IMPORTANT**: To complete the OAuth 2.0 access components of this hands-on lab you must have permissions within your Azure subscription to create an App Registration and service principal within Azure Active Directory.
-2. Install [pgAdmin](https://www.pgadmin.org/download/) 4 or greater
-3. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/)
+2. Install [pgAdmin](https://www.pgadmin.org/download/) 4 or greater.
+3. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 ## Before the hands-on lab
 
@@ -220,7 +220,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Password**: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
 
-> **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
+   > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
 
@@ -242,13 +242,13 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
 8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, select **Yes** to *allow Azure services and resources to access this server group*, then enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
 
-   - **Firewall rule name**: ALL
-   - **Start IP**: 0.0.0.0
-   - **End IP**: 255.255.255.255
+   - **Firewall rule name**: Enter `ALL`.
+   - **Start IP**: Enter `0.0.0.0`.
+   - **End IP**: Enter `255.255.255.255`.
 
    ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
 
-9.  Select **Save** to apply the new firewall rule.
+9. Select **Save** to apply the new firewall rule.
 
 ### Task 8: Install Npgsql
 

@@ -8,11 +8,11 @@ February 2020
 
 ## Target audience
 
-- Database Administrator
-- Data Engineer
-- Data Scientist
-- Database Developer
-- Solution Architect
+- Database Administrator.
+- Data Engineer.
+- Data Scientist.
+- Database Developer.
+- Solution Architect.
 
 ## Abstracts
 
@@ -28,7 +28,7 @@ In this whiteboard design session, you will work with a group to design a soluti
 
 At the end of this whiteboard design session, you will be better able to design a highly scalable, managed open source database solution that can simultaneously handle real-time data and roll-up and serve data for advanced visualizations.
 
-### Hands-on lab 
+### Hands-on lab
 
 In this hands-on lab, you will implement a proof-of-concept (PoC) for using advanced features of the managed PostgreSQL PaaS service on Azure. These features help make your database more scalable and able to handle the rapid ingest of streaming data while simultaneously generating and serving pre-aggregated data for reports. You will create a resilient stream processing pipeline to ingest, process, and save real-time data to Postgres. Next, you will implement a solution for exploring and gaining insights from flat files at scale, perform aggregates, and saving the valuable information to your database. Finally, you will create complex reports containing advanced visualizations, using a drag-and-drop interface, and use them to build a customizable dashboard that gets updated in real-time.
 
@@ -36,12 +36,12 @@ At the end of this hands-on-lab, you will be better able to implement a highly s
 
 ## Azure services and related products
 
-- Azure Database for PostgreSQL
-- Azure Event Hubs with Kafka
-- Azure Databricks
-- Power BI
-- Azure Cloud Shell
-- pgAdmin
+- Azure Database for PostgreSQL.
+- Azure Event Hubs with Kafka.
+- Azure Databricks.
+- Power BI.
+- Azure Cloud Shell.
+- pgAdmin.
 
 ## Related references
 
@@ -52,6 +52,7 @@ At the end of this hands-on-lab, you will be better able to implement a highly s
 We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
 
 ***Having trouble?***
+
 - First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
 - Next, submit an issue with a detailed description of the problem.
 - Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.  

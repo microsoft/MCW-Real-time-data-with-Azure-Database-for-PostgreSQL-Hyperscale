@@ -22,7 +22,7 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-**Contents**
+### Contents
 
 <!-- TOC -->
 
@@ -138,9 +138,9 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 7. Select the **Connection** tab. Enter the following into the fields within the Connection tab:
 
    - **Host name/address**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `:5432`. For example: `<your-server-name>.postgres.database.azure.com`)
-   - **Port**: 5432
-   - **Maintenance database**: citus
-   - **Username**: citus
+   - **Port**: `5432`.
+   - **Maintenance database**: `citus`.
+   - **Username**: `citus`.
    - **Password**: The administrative password you chose earlier (such as `Abc!1234567890`).
    - **Save password?**: Check the box.
 
@@ -278,8 +278,8 @@ In this exercise, you will add secrets to Key Vault to securely store secrets, s
 
 5. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "ADLS-Gen2-Account-Name".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `ADLS-Gen2-Account-Name`.
    - **Value**: Paste the Storage account name value you copied in an earlier step.
 
    ![The Create a secret form is displayed with the previously defined field values.](media/key-vault-add-account-name.png 'Create a secret')
@@ -290,8 +290,8 @@ In this exercise, you will add secrets to Key Vault to securely store secrets, s
 
 8. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "ADLS-Gen2-Account-Key".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `ADLS-Gen2-Account-Key`.
    - **Value**: Paste the Storage account Key value you copied in an earlier step.
 
    ![The Create a secret form is displayed with the previously defined field values.](media/key-vault-add-account-key.png 'Create a secret')
@@ -302,8 +302,8 @@ In this exercise, you will add secrets to Key Vault to securely store secrets, s
 
 11. On the Create a secret blade, enter the following:
 
-    - **Upload options**: Select Manual.
-    - **Name**: Enter "Database-Connection-String".
+    - **Upload options**: Select **Manual**.
+    - **Name**: Enter `Database-Connection-String`.
     - **Value**: Paste the PostgreSQL JDBC connection string you copied in an earlier step. **Make sure it contains your password.**
 
     ![The Create a secret form is displayed with the previously defined field values.](media/key-vault-add-connection-string.png 'Create a secret')
@@ -334,8 +334,8 @@ In this task, you will obtain the Event Hubs connection string and store it as a
 
 6. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "Kafka-Connection-String".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `Kafka-Connection-String`.
    - **Value**: Paste the Event Hubs connection string you copied in an earlier step.
 
    ![The Create a secret form is displayed with the previously defined field values.](media/key-vault-add-kafka-connection-string.png 'Create a secret')
@@ -346,8 +346,8 @@ In this task, you will obtain the Event Hubs connection string and store it as a
 
 9. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "Kafka-Server".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `Kafka-Server`.
    - **Value**: Paste the fully qualified domain name (FQDN) that points to your Event Hubs namespace from the connection string (e.g. `wwi-namespace-SUFFIX.servicebus.windows.net`). The FQDN can be found within your connection string as follows:
 
    `Endpoint=sb://` **wwi-namespace-SUFFIX.servicebus.windows.net** `/;SharedAccessKeyName=XXXXXX;SharedAccessKey=XXXXXX`
@@ -432,8 +432,8 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 4. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "WWI-SP-Client-ID".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `WWI-SP-Client-ID`.
    - **Value**: Paste the **appId** value from the Azure CLI output you copied in an earlier step.
 
    ![The Create a secret blade is displayed, with the previously mentioned values entered into the appropriate fields.](media/key-vault-create-wwi-sp-client-id-secret.png 'Create a secret')
@@ -444,8 +444,8 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 7. On the Create a secret blade, enter the following:
 
-   - **Upload options**: Select Manual.
-   - **Name**: Enter "WWI-SP-Client-Key".
+   - **Upload options**: Select **Manual**.
+   - **Name**: Enter `WWI-SP-Client-Key`.
    - **Value**: Paste the **password** value from the Azure CLI output you copied in an earlier step.
 
    ![The Create a secret blade is displayed, with the previously mentioned values entered into the appropriate fields.](media/key-vault-create-wwi-sp-client-key-secret.png 'Create a secret')
@@ -456,8 +456,8 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 
 10. On the Create a secret blade, enter the following:
 
-    - **Upload options**: Select Manual.
-    - **Name**: Enter "Azure-Tenant-ID".
+    - **Upload options**: Select **Manual**.
+    - **Name**: Enter `Azure-Tenant-ID`.
     - **Value**: Paste the **tenant** value from the Azure CLI output you copied in an earlier step.
 
     ![The Create a secret blade is displayed, with the previously mentioned values entered into the appropriate fields.](media/key-vault-create-azure-tenant-id-secret.png 'Create a secret')
@@ -479,15 +479,15 @@ In this task, you will connect to your Azure Databricks workspace and create a c
 3. On the Create Cluster screen, enter the following:
 
    - **Cluster Name**: Enter a name for your cluster, such as lab-cluster.
-   - **Cluster Mode**: Select Standard.
-   - **Pool**: Select None.
-   - **Databricks Runtime Version**: Select Runtime: 6.2 (Scala 2.11, Spark 2.4.4).
+   - **Cluster Mode**: Select **Standard**.
+   - **Pool**: Select **None**.
+   - **Databricks Runtime Version**: Select **Runtime: 6.2 (Scala 2.11, Spark 2.4.4)**.
    - **Enable autoscaling**: Ensure this is checked.
-   - **Terminate after XX minutes of inactivity**: Leave this checked, and the number of minutes set to 120.
-   - **Worker Type**: Select Standard_DS3_v2.
-     - **Min Workers**: Leave set to 2.
-     - **Max Workers**: Leave set to 8.
-   - **Driver Type**: Set to Same as worker.
+   - **Terminate after XX minutes of inactivity**: Leave this checked, and the number of minutes set to **120**.
+   - **Worker Type**: Select **Standard_DS3_v2**.
+     - **Min Workers**: Leave set to **2**.
+     - **Max Workers**: Leave set to **8**.
+   - **Driver Type**: Set to **Same as worker**.
    - Expand Advanced Options and enter the following into the Spark Config box:
 
      ```bash
@@ -515,7 +515,7 @@ In this task, you will import the notebooks contained in the [Visualizing real-t
 
 3. Within the Import Notebooks dialog, select **URL** for Import from, and then paste the following into the box: `https://github.com/solliancenet/MCW-Managed-open-source-databases-on-Azure/blob/master/Hands-on%20lab/Resources/OSSDatabases.dbc`
 
-   ![The Import Notebooks dialog is displayed](media/databricks-import-notebooks.png 'Import Notebooks dialog')
+   ![The Import Notebooks dialog is displayed.](media/databricks-import-notebooks.png 'Import Notebooks dialog')
 
 4. Select **Import**.
 
