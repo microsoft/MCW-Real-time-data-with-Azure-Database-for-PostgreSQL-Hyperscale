@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-December 2019
+February 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -18,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2019 Microsoft Corporation. All rights reserved.
+© 2020 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -48,8 +48,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
    - Trial subscriptions will not work.
    - **IMPORTANT**: To complete the OAuth 2.0 access components of this hands-on lab you must have permissions within your Azure subscription to create an App Registration and service principal within Azure Active Directory.
-2. Install [pgAdmin](https://www.pgadmin.org/download/) 4 or greater
-3. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/)
+2. Install [pgAdmin](https://www.pgadmin.org/download/) 4 or greater.
+3. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 ## Before the hands-on lab
 
@@ -105,7 +105,7 @@ In this task, you will use the Azure Cloud shell to create a new Azure Resource 
    location=westus2
    ```
 
-   > For a list of valid location names, execute: `az account list-locations -o table`
+   > For a list of valid location names, execute: `az account list-locations -o table`.
 
 9. Enter the following command to create a subscription group.
 
@@ -220,7 +220,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Password**: Enter `Abc!1234567890`.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
 
-> **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
+   > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 4. Select **Configure server group**. Leave the settings in that section unchanged and select **Save**.
 
@@ -240,19 +240,15 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
    ![The Azure Database for PostgreSQL server group is highlighted.](media/postgres-server-group-resource.png 'Resource Group')
 
-8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
+8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, select **Yes** to *allow Azure services and resources to access this server group*, then enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
 
-   - **Firewall rule name**: ALL
-   - **Start IP**: 0.0.0.0
-   - **End IP**: 255.255.255.255
+   - **Firewall rule name**: Enter `ALL`
+   - **Start IP**: Enter `0.0.0.0`
+   - **End IP**: Enter `255.255.255.255`
 
    ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
 
-9. Under _Allow Azure services and resources to access this server group_, select **Yes**.
-
-   ![The firewall rules are applied.](media/postgres-networking.png 'Networking')
-
-10. Select **Save** to apply the new firewall rule.
+9. Select **Save** to apply the new firewall rule.
 
 ### Task 8: Install Npgsql
 
