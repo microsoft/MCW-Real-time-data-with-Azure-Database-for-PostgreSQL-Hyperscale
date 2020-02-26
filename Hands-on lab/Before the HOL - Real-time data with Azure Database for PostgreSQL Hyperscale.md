@@ -105,7 +105,7 @@ In this task, you will use the Azure Cloud shell to create a new Azure Resource 
    location=westus2
    ```
 
-   > For a list of valid location names, execute: `az account list-locations -o table`
+   > For a list of valid location names, execute: `az account list-locations -o table`.
 
 9. Enter the following command to create a subscription group.
 
@@ -242,9 +242,9 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
 8. Select **Networking** in the left-hand menu underneath Security. In the Firewall rules blade, select **Yes** to *allow Azure services and resources to access this server group*, then enter the following to create a new firewall rule to allow all connections (from your machine and Azure services):
 
-   - **Firewall rule name**: Enter `ALL`.
-   - **Start IP**: Enter `0.0.0.0`.
-   - **End IP**: Enter `255.255.255.255`.
+   - **Firewall rule name**: Enter `ALL`
+   - **Start IP**: Enter `0.0.0.0`
+   - **End IP**: Enter `255.255.255.255`
 
    ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
 
