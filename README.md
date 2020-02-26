@@ -8,11 +8,11 @@ February 2020
 
 ## Target audience
 
-- Database Administrator.
-- Data Engineer.
-- Data Scientist.
-- Database Developer.
-- Solution Architect.
+- Database Administrator
+- Data Engineer
+- Data Scientist
+- Database Developer
+- Solution Architect
 
 ## Abstracts
 
@@ -36,12 +36,12 @@ At the end of this hands-on-lab, you will be better able to implement a highly s
 
 ## Azure services and related products
 
-- Azure Database for PostgreSQL.
-- Azure Event Hubs with Kafka.
-- Azure Databricks.
-- Power BI.
-- Azure Cloud Shell.
-- pgAdmin.
+- Azure Database for PostgreSQL
+- Azure Event Hubs with Kafka
+- Azure Databricks
+- Power BI
+- Azure Cloud Shell
+- pgAdmin
 
 ## Related references
 

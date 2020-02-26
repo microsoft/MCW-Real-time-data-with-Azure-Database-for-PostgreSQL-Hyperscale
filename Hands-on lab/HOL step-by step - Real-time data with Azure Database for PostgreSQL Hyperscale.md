@@ -22,7 +22,7 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-### Contents
+**Contents**
 
 <!-- TOC -->
 
@@ -137,10 +137,10 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
 7. Select the **Connection** tab. Enter the following into the fields within the Connection tab:
 
-   - **Host name/address**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `:5432`. For example: `<your-server-name>.postgres.database.azure.com`)
-   - **Port**: `5432`.
-   - **Maintenance database**: `citus`.
-   - **Username**: `citus`.
+   - **Host name/address**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `:5432`. For example: `<your-server-name>.postgres.database.azure.com`).
+   - **Port**: `5432`
+   - **Maintenance database**: `citus`
+   - **Username**: `citus`
    - **Password**: The administrative password you chose earlier (such as `Abc!1234567890`).
    - **Save password?**: Check the box.
 
