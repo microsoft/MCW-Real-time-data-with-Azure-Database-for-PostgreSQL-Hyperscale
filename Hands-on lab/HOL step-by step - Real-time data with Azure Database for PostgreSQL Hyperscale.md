@@ -901,7 +901,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
 5. Drag the **event_id** field from the `events` table to **Values**, and **event_type** to **Group** within the Treemap visualization settings.
 
-   ![The fields are showin in their respective locations in the Treemap settings.](media/pbi-treemap-settings.png 'Treemap settings')
+   ![The fields are showing in their respective locations in the Treemap settings.](media/pbi-treemap-settings.png 'Treemap settings')
 
 6. Your Treemap visualization should look similar to the following:
 
@@ -913,7 +913,7 @@ In this exercise, you will connect to your PostgreSQL database cluster in [Power
 
 8. Drag the **country** field from the `events` table to **Column series**, **event_type** to **Shared axis**, and **session_id** to **Column values** within the Line and clustered column chart visualization settings.
 
-   ![The fields are showin in their respective locations in the Line and clustered column chart settings.](media/pbi-line-settings.png 'Visualization settings')
+   ![The fields are showing in their respective locations in the Line and clustered column chart settings.](media/pbi-line-settings.png 'Visualization settings')
 
 9. Your visualization should look similar to the following:
 
@@ -955,7 +955,7 @@ To share your report with others or to enable embedding the report within websit
 
    ![The Open in Power BI link is highlighted.](media/pbi-publish-success.png 'Publishing to Power BI')
 
-5. A new browser tab will open, taking you to your published report on the [Power BI website](https://app.powerbi.com). Create a new dashboard by selecting **Pin Live Page** in the toolbar above the report.
+5. A new browser tab will open, taking you to your published report on the [Power BI website](https://app.powerbi.com). Sign in if prompted to do so. Create a new dashboard by selecting **Pin Live Page** in the toolbar above the report.
 
    ![The Pin Live Page option is highlighted.](media/pbi-website-report.png 'Power BI website')
 
