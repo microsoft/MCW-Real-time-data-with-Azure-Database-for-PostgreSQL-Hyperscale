@@ -125,7 +125,7 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
    ![The Connection strings item is selected and the JDBC connection string is highlighted.](media/postgres-jdbc-connection-string.png 'Connection strings')
 
-4. Replace "{your_password}" with the administrative password you chose earlier (such as `Abc!1234567890`). The system doesn't store your plaintext password and so can't display it for you in the connection string. **Save the connection string** to Notebook or similar text editor for later.
+4. Replace "{your_password}" with the administrative password you chose earlier. The system doesn't store your plaintext password and so can't display it for you in the connection string. **Save the connection string** to Notebook or similar text editor for later.
 
 5. Launch pgAdmin. Select **Add New Server** on the home page.
 
@@ -141,7 +141,7 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
    - **Port**: `5432`
    - **Maintenance database**: `citus`
    - **Username**: `citus`
-   - **Password**: The administrative password you chose earlier (such as `Abc!1234567890`).
+   - **Password**: The administrative password you chose earlier.
    - **Save password?**: Check the box.
 
    ![The previously described fields are filled in within the Connection tab.](media/pgadmin-create-server-connection.png 'Create Server - Connection tab')
@@ -382,10 +382,10 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
    az account set --subscription <subscription id>
    ```
 
-5. Next, you will issue a command to create a service principal named **wwi-oss-sp** and assign it to the _Storage Blob Data Contributor_ role on your **ADLS Gen2 Storage account**. The command will be in the following format:
+5. Next, you will issue a command to create a service principal named **wwi-oss-pg-sp** and assign it to the _Storage Blob Data Contributor_ role on your **ADLS Gen2 Storage account**. The command will be in the following format:
 
    ```bash
-   az ad sp create-for-rbac -n "wwi-oss-sp" --role "Storage Blob Data Contributor" --scopes {adls-gen2-storage-account-resource-id}
+   az ad sp create-for-rbac -n "wwi-oss-pg-sp" --role "Storage Blob Data Contributor" --scopes {adls-gen2-storage-account-resource-id}
    ```
 
    > **IMPORTANT**: You will need to replace the `{adls-gen2-storage-account-resource-id}` value with the resource ID of your ADLS Gen2 Storage account.
@@ -399,7 +399,7 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
 8. Paste the Storage account resource ID into the command above, and then copy and paste the updated `az ad sp create-for-rbac` command at the Cloud Shell prompt and press `Enter`. The command should be similar to the following, with your subscription ID and resource group name:
 
    ```bash
-   az ad sp create-for-rbac -n "wwi-oss-sp" --role "Storage Blob Data Contributor" --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/hands-on-lab/providers/Microsoft.Storage/storageAccounts/wwiadlsoss
+   az ad sp create-for-rbac -n wwi-oss-pg-sp" --role "Storage Blob Data Contributor" --scopes /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/hands-on-lab/providers/Microsoft.Storage/storageAccounts/wwiadlsoss
    ```
 
    ![The az ad sp create-for-rbac command is entered into the Cloud Shell, and the output of the command is displayed.](media/azure-cli-create-sp.png 'Azure CLI')
@@ -409,16 +409,16 @@ As an added layer of security when accessing an ADLS Gen2 filesystem using Datab
     ```json
     {
         "appId": "16fae522-05f9-4e4d-8ccd-11db01909331",
-        "displayName": "wwi-oss-sp",
-        "name": "http://wwi-oss-sp",
+        "displayName": "wwi-oss-pg-sp",
+        "name": "http://wwi-oss-pg-sp",
         "password": "00713451-2b0e-416f-b5bf-fbb43c1836d5",
         "tenant": "d280491c-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
     }
     ```
 
-10. To verify the role assignment, select **Access control (IAM)** from the left-hand menu of the **ADLS Gen2 Storage account** blade, and then select the **Role assignments** tab and locate **wwi-oss-sp** under the _STORAGE BLOB DATA CONTRIBUTOR_ role.
+10. To verify the role assignment, select **Access control (IAM)** from the left-hand menu of the **ADLS Gen2 Storage account** blade, and then select the **Role assignments** tab and locate **wwi-oss-pg-sp** under the _STORAGE BLOB DATA CONTRIBUTOR_ role.
 
-    ![The Role assignments tab is displayed, with wwi-oss-sp account highlighted under STORAGE BLOB DATA CONTRIBUTOR role in the list.](media/storage-account-role-assignments.png 'Role assignments')
+    ![The Role assignments tab is displayed, with wwi-oss-pg-sp account highlighted under STORAGE BLOB DATA CONTRIBUTOR role in the list.](media/storage-account-role-assignments.png 'Role assignments')
 
 ### Task 4: Add the service principal credentials and Tenant Id to Azure Key Vault
 
@@ -481,7 +481,7 @@ In this task, you will connect to your Azure Databricks workspace and create a c
    - **Cluster Name**: Enter a name for your cluster, such as lab-cluster.
    - **Cluster Mode**: Select **Standard**.
    - **Pool**: Select **None**.
-   - **Databricks Runtime Version**: Select **Runtime: 6.2 (Scala 2.11, Spark 2.4.4)**.
+   - **Databricks Runtime Version**: Select **Runtime: 6.5 (Scala 2.11, Spark 2.4.5)**.
    - **Enable autoscaling**: Ensure this is checked.
    - **Terminate after XX minutes of inactivity**: Leave this checked, and the number of minutes set to **120**.
    - **Worker Type**: Select **Standard_DS3_v2**.
@@ -535,7 +535,7 @@ In this task, you will connect to your Azure Databricks workspace and configure 
 
    ![The Launch Workspace button is displayed on the Databricks Workspace Overview blade.](media/databricks-launch-workspace.png 'Launch Workspace')
 
-4. In your browser's URL bar, append **#secrets/createScope** to your Azure Databricks base URL (for example, <https://westus.azuredatabricks.net#secrets/createScope>).
+4. In your browser's URL bar, append **#secrets/createScope** to your Azure Databricks base URL (for example, <https://adb-3256993829419005.5.azuredatabricks.net/#secrets/createScope>).
 
 5. Enter `key-vault-secrets` for the name of the secret scope.
 
