@@ -843,6 +843,8 @@ You will then execute queries against the rollup tables that can be used for WWI
 
 ## Exercise 5: Create advanced visualizations in Power BI
 
+Duration: 20 minutes
+
 In this exercise, you will connect to your PostgreSQL database cluster in [Power BI Desktop](https://powerbi.microsoft.com/desktop/) and create advanced visualizations. Then you will export the report to Power BI online so it can be accessed by others and embedded in external websites.
 
 ### Task 1: Connect to your Postgres data from Power BI
