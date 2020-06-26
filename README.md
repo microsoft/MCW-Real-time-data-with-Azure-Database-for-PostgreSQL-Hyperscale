@@ -4,7 +4,7 @@ Wide World Importers (WWI) is a traditional brick and mortar business with a lon
 
 WWI is interested in learning to use advanced features of the managed PostgreSQL PaaS service on Azure to make their database more scalable and able to handle the rapid ingest of streaming data while simultaneously generating and serving pre-aggregated data for reports.
 
-February 2020
+June 2020
 
 ## Target audience
 

@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-February 2020
+June 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -189,7 +189,7 @@ In this task, you will use the Azure Cloud Shell to create a new Azure Databrick
 1. Execute the following command to create your Azure Databricks workspace with an ARM template:
 
    ```bash
-   az group deployment create \
+   az deployment group create \
        --name DatabricksWorkspaceDeployment \
        --resource-group $resourcegroup \
        --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-databricks-workspace/azuredeploy.json" \
@@ -217,7 +217,7 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
    - **Resource group**: Select the resource group you created earlier.
    - **Server group name**: Enter a unique name for the new server group, such as **wwi-postgres-SUFFIX**, which will also be used for a server subdomain.
    - **Admin username**: Currently required to be the value **citus**, and can't be changed.
-   - **Password**: Enter `Abc!1234567890`.
+   - **Password**: _Enter a valid password you will remember_.
    - **Location**: Use the location you provided when creating the resource group, or the closest available.
 
    > **Note**: The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
@@ -254,9 +254,9 @@ In this task, you will deploy a new Azure Database for PostgreSQL, selecting the
 
 Npgsql is a .NET data provider for PostgreSQL and is required to connect Power BI Desktop to your PostgreSQL database cluster. Make sure you have installed [Power BI Desktop](https://powerbi.microsoft.com/desktop/) before continuing.
 
-1. Navigate to <https://github.com/npgsql/npgsql/releases> and download then run the **.msi** file for the latest version.
+1. Navigate to <https://github.com/npgsql/npgsql/releases> and download then run the **.msi** file for the latest version that includes an `msi` file in its assets.
 
-   ![The .msi file is highlighted for the latest release.](media/npgsql-latest-release.png 'Npgsql releases')
+   ![The .msi file is highlighted for the latest release.](media/npgsql-latest-release-msi.png 'Npgsql releases')
 
 2. During installation, select **Npgsql GAC Installation** when given the option to select features you want to install. Select the **Entire feature will be installed on local hard drive** option.
 
