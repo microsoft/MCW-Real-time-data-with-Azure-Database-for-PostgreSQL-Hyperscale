@@ -1,3 +1,6 @@
+## Effective December 1, 2020 this workshop will be archived.  Materials remain available through November but are no longer being maintained. 
+### For additional Data and AI content, please go to https://microsoft.github.io/sqlworkshops/.
+
 # Real-time data with Azure Database for PostgreSQL Hyperscale
 
 Wide World Importers (WWI) is a traditional brick and mortar business with a long track record of success, generating profits through strong retail store sales of their unique offering of affordable products from around the world and a strong focus on customer relationships.  WWI modernized their business by expanding to online storefronts and experimenting with various marketing tactics to drive online sales. This expansion has made it more challenging to analyze user clickstream data, online ad performance, and other marketing campaigns at scale, and to provide insights to the marketing team in real-time.
@@ -46,17 +49,3 @@ At the end of this hands-on-lab, you will be better able to implement a highly s
 ## Related references
 
 - [MCW](https://github.com/Microsoft/MCW)
-
-## Help & Support
-
-We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
-
-***Having trouble?***
-
-- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
-- Next, submit an issue with a detailed description of the problem.
-- Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.  
-
-If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
-
-### Please allow 5 - 10 business days for review and resolution of issues.
